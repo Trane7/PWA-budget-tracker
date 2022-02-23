@@ -15,7 +15,6 @@ fetch("/api/transaction")
   });
 
 function populateTotal() {
-  // reduce transaction amounts to a single total value
   let total = transactions.reduce((total, t) => {
     return total + parseInt(t.value);
   }, 0);
@@ -41,11 +40,10 @@ function populateTable() {
 }
 
 function populateChart() {
-  // copy array and reverse it
   let reversed = transactions.slice().reverse();
   let sum = 0;
 
-  // create date labels for chart
+  
   let labels = reversed.map(t => {
     let date = new Date(t.date);
     return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
